@@ -1,0 +1,190 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,700);
+@import "compass/utilities";
+@import "compass/css3";
+
+
+$highlight-color: #F7E9BA;
+$light-gray: #eee;
+$frame-color: #016ED3;
+$transitions-duration: 300ms;
+
+html{
+  height: 100%;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    border:1px solid $frame-color;
+    min-height: 100%;
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background:$frame-color;
+    color:white;
+    padding:12px;
+    text-align:center;
+    z-index:10000;
+
+    h1 {
+        margin:0;
+        padding:0;
+        font-size:22px;
+        font-weight:bold;
+        display:inline;
+    }
+}
+
+.highlight {
+    font-weight:bold;
+    color: $frame-color;
+}
+
+.loading {
+    margin: 50px auto;
+    width: 120px;
+    text-align: center;
+    background: $highlight-color;
+    font-weight:bold;
+    font-size:26px;
+    color:gray;
+    @include border-radius(3px, 3px);
+}
+
+
+.main-view {
+    margin-top:46px;
+}
+
+.station {
+    border:1px solid $light-gray;
+    border-bottom:0;
+    padding:12px;
+    cursor:pointer;
+
+    .station-title {
+        float:left;
+        width:80%;
+
+        .station-title-name {
+            font-weight:bold;
+            font-size:18px;
+
+            @include ellipsis
+        }
+
+        .station-title-caption {
+            color:gray;
+        }
+    }
+
+    .station-data {
+        float:right;
+        font-size: 18px;
+        margin-top:10px;
+    }
+}
+
+.station:first-child {
+    border-top:0;
+}
+
+.station:last-child {
+    border-bottom:1px solid $light-gray;
+}
+
+.station:hover {
+    background: $highlight-color;
+}
+
+
+
+
+.station-detail {
+    h1 {
+        font-weight:bold;
+        font-size:24px;
+        margin: 16px 0 16px 0;
+        @include ellipsis;
+    }
+
+    .station-detail-data {
+        margin:16px 0;
+        font-size:18px;
+    }
+}
+
+.station-search {
+    margin-top: 24px;
+}
+
+
+.back-to-list {
+    padding:14px;
+    background:#f6f6f6;
+
+    a {
+        color: #777;
+        display:block;
+        font-weight:bold;
+        font-size:18px;
+        text-decoration:none;
+    }
+
+    .back-to-list-icon {
+        display:inline-block;
+        margin-right:12px;
+    }
+}
+
+.button-icon {
+    margin-top: 0px;
+    padding: 4px;
+    /*border: 1px solid tint($frame-color, 60%);*/
+    background: shade($frame-color, 20%);
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.clearfix { clear:both; }
+
+
+
+/** CSS ANIMATIONS **/
+
+.blink_me {
+    -webkit-animation-name: blinker;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+
+    -moz-animation-name: blinker;
+    -moz-animation-duration: 1s;
+    -moz-animation-timing-function: linear;
+    -moz-animation-iteration-count: infinite;
+
+    animation-name: blinker;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@-moz-keyframes blinker {
+    0% { opacity: 1.0; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1.0; }
+}
+
+@-webkit-keyframes blinker {
+    0% { opacity: 1.0; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1.0; }
+}
+
+@keyframes blinker {
+    0% { opacity: 1.0; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1.0; }
+}
