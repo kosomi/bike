@@ -1,4 +1,5 @@
-//
+<img src = "https://github.com/kosomi/bike/blob/master/Untitled.png">
+
 
 'use strict';
 
