@@ -20,11 +20,7 @@ bikeServices.factory('Stations', function (geolocation, $http, $cacheFactory) {
         this.lng = rawStation.longitude; 
         this.distance = distance(rawStation.latitude, rawStation.longitude, position.lat, position.lng );
     }
-
-    var httpConfig = { headers:  {
-            'Accept': 'application/json;odata=verbose'
-        }
-    };
+ 
 
     var all = function(options) {
         var stationsList;
@@ -33,7 +29,7 @@ bikeServices.factory('Stations', function (geolocation, $http, $cacheFactory) {
         return geolocation.getLocation().then(function(data){
             var position = {lat:data.coords.latitude, lng:data.coords.longitude}; 
 
-            return $http.get(ENDPOINT_URL, httpConfig).then(function (response) {
+            return $http.get(ENDPOINT_URL ).then(function (response) {
 
                 var stations = response.data;
 
